@@ -22,6 +22,7 @@ class PropertyInfo {
   });
 }
 
+//this is the list of properties with their details
 List<PropertyInfo> propertyList = [
   PropertyInfo(
       propertyCode: 'ADM/589/AK/001',

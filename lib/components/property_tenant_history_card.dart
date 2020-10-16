@@ -3,9 +3,7 @@ import 'package:adams_app_v_1_0/models/property_information.dart';
 import 'package:adams_app_v_1_0/screens/pages/propertycode_page.dart';
 import 'package:adams_app_v_1_0/screens/pages/rent_page.dart';
 import 'package:adams_app_v_1_0/screens/pages/responsibility_page.dart';
-import 'package:adams_app_v_1_0/screens/pages/restriction_page.dart';
 import 'package:adams_app_v_1_0/screens/pages/tenant_page.dart';
-
 
 //PTH-property tenant history
 List pthTabs = [
@@ -16,12 +14,11 @@ List pthTabs = [
   'Restriction',
 ];
 //PTHPages - Property Tenant History Pages
-List pthPages =[
+List pthPages = [
   PropertyCodePage(),
   TenantPage(),
   RentPage(),
   ResponsibilityPage(),
-  RestrictionsPage()
 ];
 
 List pthAccounts = [
@@ -37,23 +34,25 @@ List pthAccounts = [
   'AZM/423/DK/010',
   'RZM/423/DK/012',
   'WZM/423/DK/013',
-
 ];
-
-
 
 class PropertyTenantHistoryCard extends StatelessWidget {
   final PropertyInfo propertyInfo;
-  const PropertyTenantHistoryCard({Key key, this.propertyInfo,}) : super(key: key);
+  const PropertyTenantHistoryCard({
+    Key key,
+    this.propertyInfo,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
         Navigator.push(
-          context, MaterialPageRoute(
-          builder: (context) => PropertyCodePage(propertyInfo: propertyInfo,)
-      ));
-        },
+            context,
+            MaterialPageRoute(
+                builder: (context) => PropertyCodePage(
+                      propertyInfo: propertyInfo,
+                    )));
+      },
       child: Container(
         height: 35,
         width: 250,
@@ -67,14 +66,10 @@ class PropertyTenantHistoryCard extends StatelessWidget {
                 spreadRadius: 2,
                 blurRadius: 5,
               )
-            ]
-        ),
+            ]),
         child: Text(
           propertyInfo.propertyCode,
-          style: TextStyle(
-              fontSize: 13,
-              color: Colors.black
-          ),
+          style: TextStyle(fontSize: 13, color: Colors.black),
         ),
       ),
     );
